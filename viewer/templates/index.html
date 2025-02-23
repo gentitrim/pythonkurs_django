@@ -7,5 +7,9 @@
                 <p>{{ adjective }} world...</p>
             {% endif %}
         {% endfor %}
+
+        {% for movie in all_movies %}
+            <p>{{ movie.title }}</p>
+        {% endfor %}
     </body>
 </html>

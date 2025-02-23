@@ -1,13 +1,15 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from .models import Genere
+from .models import Movies,Genere
 
 
 # Create your views here.
 
 
 def index(request):
-    return render(request,'index.html',context={"adjectives": {"Hello","Hi"}})
+    movies = Movies.objects.all()
+    return render(request,'index.html',context={"adjectives": {"movie.title","Hi"},"all_movies":movies})
 
 def hello(request,something):
     return HttpResponse(f'hello {something}')
