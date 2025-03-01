@@ -26,3 +26,15 @@ class Movies(models.Model):
     
     def __repr__(self):
         return f"Movie name: {self.title}-{self.released}"
+    
+
+class Director(models.Model):
+    name = CharField(max_length=128)
+    surname = CharField(max_length=128)
+
+    def __str__(self):
+        return f'{self.name} {self.surname}'
+
+    def __repr__(self):
+        return f'{self.name} {self.surname}'
+    

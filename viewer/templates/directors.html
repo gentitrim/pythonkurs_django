@@ -1,0 +1,12 @@
+{% extends 'base.html'%}
+
+{%block content%}
+        <h1>Director list</h1>
+
+        {% for director in all_directors %}
+            <p>{{ director }}</p>
+        {% endfor %}
+
+        <a href="{% url "create_director"%}"><input type="submit" value="Create new director"></a>
+
+{%endblock%}

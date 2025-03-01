@@ -1,0 +1,12 @@
+{% extends 'base.html'%}
+
+{%block content%}
+        <h1>Movie list</h1>
+
+        {% for movie in all_movies %}
+            <p>{{ movie }}</p>
+        {% endfor %}
+        <a href="{% url "create_movies"%}"><input type="submit" value="Create new movie"></a>
+
+{%endblock%}
+
