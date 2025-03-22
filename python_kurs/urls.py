@@ -20,5 +20,7 @@ from django.urls import include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('',include('viewer.urls')),
+    path('post/',include('viewer.urls')),
+    path('',include('users_auth.urls')),
+    path('api',include('api.urls')),
 ]

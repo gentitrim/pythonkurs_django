@@ -22,10 +22,22 @@ class MovieForm(Form):
             raise ValidationError('Action movies must have rating lower than 9')
         return super().clean()
     
-    # class MovieModelForm(ModelForm):
-    #     class Meta:
-    #         model = Movies
-    #         fields = "__all__"
+    def __init__(self, *args, **kwargs):
+            super().__init__(*args, **kwargs)
+            for visible in self.visible_fields():
+                visible.field.widget.attrs['class'] = 'form-control'
+    
+class MovieModelForm(ModelForm):
+    class Meta:
+        model = Movies
+        fields = "__all__"
+
+        def __init__(self, *args, **kwargs):
+            super().__init__(*args, **kwargs)
+            for visible in self.visible_fields():
+                visible.field.widget.attrs['class'] = 'form-control'
+
+
 
 class DirectorForm(Form):
     name = CharField(max_length=128)
@@ -36,3 +48,5 @@ class DirectorForm(Form):
     
     def clean_surname(self):
         return self.cleaned_data["surname"].capitalize()
+    
+

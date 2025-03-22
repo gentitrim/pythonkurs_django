@@ -12,5 +12,7 @@ urlpatterns = [
     # path('movies/create',views.MovieCreateFormView.as_view(),name="create_movies")
     path('movies/create',views.MovieCreateFormView.as_view(),name="create_movies"),
     path('director/create',views.DirectorCreateFormView.as_view(),name="create_director"),
-    path('director/',views.DirectorListView.as_view(),name="directors")
+    path('director/',views.DirectorListView.as_view(),name="directors"),
+    path('movies/<pk>/edit/',views.MoviesSimpleUpdateView.as_view(),name="update_movies"),
+    path('movies/<pk>/delete/',views.MovieDeleteView.as_view(),name="delete_movies"),
 ]

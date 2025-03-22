@@ -41,6 +41,16 @@
                     Directors
                 </a>
             </div>
+            <div class="navbar-nav">
+                <a class="nav-item nav-link active" href="{% url "logout" %}">
+                    Logout
+                </a>
+            </div>
+            <div class="navbar-nav">
+                <a class="nav-item nav-link active" href="{% url "directors" %}">
+                    {{ user.username }}
+                </a>
+            </div>
         </div>
         </div>
         </nav>

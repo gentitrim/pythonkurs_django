@@ -4,8 +4,16 @@
         <h1>Movie list</h1>
 
         {% for movie in all_movies %}
+            <div style="display:flex;justify-content:space-between;">
             <p>{{ movie }}</p>
+            {% if perms.viewer.add_movies %}
+            <a href="{% url 'update_movies' movie.id %}"><input type="submit" value="Edit"></a>
+            <a href="{% url 'delete_movies' movie.id %}"><input type="submit" value="Delete"></a>
+            {% endif %}
+        </div>
         {% endfor %}
+
+        {{ user }}
         <a href="{% url "create_movies"%}"><input type="submit" value="Create new movie"></a>
 
 {%endblock%}
